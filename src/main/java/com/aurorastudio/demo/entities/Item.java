@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @Table(name = "items")
 public class Item {
-    private static final long serialVersionUID = 1L;
     private Long id;
     private String description;
     private String name;

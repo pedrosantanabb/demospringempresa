@@ -36,7 +36,6 @@ public class PriceReductionService {
         if(dateOverlaped) {
             return priceReductionRepository.save(priceReduction);
         } else{
-            ///TODO Lanzar excepción con fechas solapadas
             throw new PriceReductionDateErrorParameterException();
         }
     }

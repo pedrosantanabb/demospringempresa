@@ -66,6 +66,6 @@ public class EmployeeService {
     public void validateEmployee(Employee employee){
         if(employee == null) throw new EmployeeNullException();
         if(employee.getName() == null || employee.getRole() == null) throw new EmployeeDataViolationException((employee.getName()== null)?"name":"role");
-        if(employee.getName().isEmpty() || employee.getRole().isEmpty()) throw new EmployeeDataViolationException((employee.getName()== null)?"name":"role");
+        if(employee.getName().isEmpty() || employee.getRole().isEmpty()) throw new EmployeeDataViolationException((employee.getName().isEmpty())?"name":"role");
     }
 }

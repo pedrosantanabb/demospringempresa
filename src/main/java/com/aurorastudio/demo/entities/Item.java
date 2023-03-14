@@ -2,7 +2,6 @@ package com.aurorastudio.demo.entities;
 
 import com.aurorastudio.demo.globaldata.ItemStateEnum;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -91,11 +90,7 @@ public class Item {
         return priceReductions;
     }
 
-    public void setPriceReductions(Set<PriceReduction> priceReductions) {
-        this.priceReductions = priceReductions;
-    }
     @ManyToMany(cascade ={CascadeType.MERGE})
-    @JsonIgnoreProperties("items")
     @JoinTable(name="items_suppliers",
             joinColumns = @JoinColumn(name = "item_id"),
             inverseJoinColumns = @JoinColumn(name = "supplier_id"))
@@ -103,9 +98,6 @@ public class Item {
         return supplierList;
     }
 
-    public void setSupplierList(Set<Supplier> supplierList) {
-        this.supplierList = supplierList;
-    }
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="creator_id")
     @JsonBackReference(value = "item_creator")
@@ -120,11 +112,11 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", creationDate=" + creationDate +
-                ", state=" + state +
+                "id:" + id +
+                ", description:'" + description + '\'' +
+                ", price:" + price +
+                ", creationDate:" + creationDate +
+                ", state:" + state +
                 '}';
     }
 

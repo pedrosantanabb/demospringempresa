@@ -1,12 +1,13 @@
 package com.aurorastudio.demo.services;
 
-import com.aurorastudio.demo.entities.Employee;
+
 import com.aurorastudio.demo.entities.Item;
 import com.aurorastudio.demo.exceptions.ItemNotFoundExecption;
 import com.aurorastudio.demo.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,8 +25,10 @@ public class ItemService {
     }
 
     public Item createItem(Item newItem){
-        Item response = repository.save(newItem);
-        return response;
+        if(newItem.getCreationDate()== null)
+            newItem.setCreationDate(new Date());
+        return repository.save(newItem);
+
     }
 
     public Item updateItem(Item updatedItem, Long id){

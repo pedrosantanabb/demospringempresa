@@ -76,7 +76,7 @@ public class Item {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     public ItemStateEnum getState() {
         return state;
     }
@@ -96,6 +96,15 @@ public class Item {
             inverseJoinColumns = @JoinColumn(name = "supplier_id"))
     public Set<Supplier> getSupplierList() {
         return supplierList;
+    }
+
+
+    public void setPriceReductions(Set<PriceReduction> priceReductions) {
+        this.priceReductions = priceReductions;
+    }
+
+    public void setSupplierList(Set<Supplier> supplierList) {
+        this.supplierList = supplierList;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

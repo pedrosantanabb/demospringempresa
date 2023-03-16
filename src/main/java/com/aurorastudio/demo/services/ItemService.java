@@ -38,6 +38,7 @@ public class ItemService {
             item.setPrice(updatedItem.getPrice());
             item.setDescription(updatedItem.getDescription());
             item.setCreator(updatedItem.getCreator());
+            item.setSupplierList(updatedItem.getSupplierList());
             return repository.save(item);
         }).orElseGet(()->{
             updatedItem.setId(id);
